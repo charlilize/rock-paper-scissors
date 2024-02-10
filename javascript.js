@@ -149,11 +149,8 @@ buttons.forEach((button) => {
             playAgainBtn.textContent = "Play Again?";
 
             playAgainBtn.addEventListener("click", () => {
-
-                
-
+                window.location.reload();
             });
-
         }
     });
 });
