@@ -64,14 +64,14 @@ function playGame() {
     let computerWins = 0;
     
     // Plays 5 rounds of game
-    for (let i = 0; i < 5; i++) {
+    // for (let i = 0; i < 5; i++) {
         // Randomize Computer's choice
-        let computerSelection = getComputerChoice();
+        // let computerSelection = getComputerChoice();
         // Prompt for user's choice
-        let playerSelection = (prompt("Choose Rock, Paper, or Scissors").toUpperCase());
+        // let playerSelection = (prompt("Choose Rock, Paper, or Scissors").toUpperCase());
 
         // Compare the choices
-        console.log(playRound(playerSelection, computerSelection));
+        // console.log(playRound(playerSelection, computerSelection));
 
         // Keep track of who won the round
         let winner = updateWins(playerSelection, computerSelection);
@@ -80,7 +80,13 @@ function playGame() {
         } else if (winner == 0) {
             computerWins++;
         }
-    }
+    // }
+
+    console.log(playerWins);
+
+
+    playerScore.textContent = "Score: " + playerWins;
+    compScore.textContent = "Score: " + computerWins;
 
     // Output the outcome of the game
     if (playerWins == computerWins) {
@@ -90,6 +96,64 @@ function playGame() {
     } else if (computerWins > playerWins) {
         console.log("GAME OVER: Computer Wins the Game!");
     }
-
-
 }
+
+const buttonsDiv = document.querySelector("#container");
+const buttons = document.querySelectorAll("button");
+const displayResults = document.querySelector("#results");
+const displayWinner = document.querySelector("#winner");
+const playerScore = document.querySelector("#plyrScore");
+const compScore = document.querySelector("#compScore");
+const playAgain = document.querySelector("#playAgain")
+let playerWins = 0;
+let computerWins = 0;
+let roundWinner = 0;
+
+buttons.forEach((button) => {
+
+    button.addEventListener("click", (event) => {
+        // Randomize computer's choice every play
+        let computerSelection = getComputerChoice();
+
+        // Depending on element's ID put player's selection
+        switch(event.target.id) {
+            case "rock":
+                displayResults.textContent = playRound("ROCK", computerSelection);
+                roundWinner = updateWins("ROCK", computerSelection);
+                break;
+            case "paper":
+                displayResults.textContent = playRound("PAPER", computerSelection);
+                roundWinner = updateWins("PAPER", computerSelection);
+                break;
+            case "scissors":
+                displayResults.textContent = playRound("SCISSORS", computerSelection);
+                roundWinner = updateWins("SCISSORS", computerSelection);
+                break;
+        }
+
+        if (roundWinner == 1)      playerWins++;
+        else if (roundWinner == 0) computerWins++;
+
+        playerScore.textContent = "Player: " + playerWins;
+        compScore.textContent = "Computer: " + computerWins;
+
+        if (playerWins == 5 || computerWins == 5) {
+            buttonsDiv.remove();
+
+            if (playerWins == computerWins)     displayWinner.textContent = "GAME OVER: It's a Tie!";
+            else if (playerWins > computerWins) displayWinner.textContent = "GAME OVER: Player Wins the Game!";
+            else if (computerWins > playerWins) displayWinner.textContent = "GAME OVER: Computer Wins the Game!";
+
+            let playAgainBtn = document.createElement("button");
+            playAgain.appendChild(playAgainBtn);  
+            playAgainBtn.textContent = "Play Again?";
+
+            playAgainBtn.addEventListener("click", () => {
+
+                
+
+            });
+
+        }
+    });
+});
