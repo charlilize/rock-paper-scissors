@@ -145,6 +145,7 @@ buttons.forEach((button) => {
             else if (computerWins > playerWins) displayWinner.textContent = "GAME OVER: Computer Wins the Game!";
 
             let playAgainBtn = document.createElement("button");
+            playAgainBtn.setAttribute("class", "buttons");
             playAgain.appendChild(playAgainBtn);  
             playAgainBtn.textContent = "Play Again?";
 

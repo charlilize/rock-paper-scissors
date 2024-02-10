@@ -3,21 +3,31 @@
     <head>
         <meta charset="UTF-8">
         <script src="javascript.js" defer></script>
-        <link href="style.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
         <title>Rock, Paper, Scissors</title>
     </head>
     <body>
-        <div id="scores">
-            <div id="plyrScore">Player: 0</div>
-            <div id="compScore">Computer: 0</div>
+        <div id="game-window">
+            <div id="scores">
+                <div id="plyrScore" class="bold">Player: 0</div>
+                <div id="compScore" class="bold">Computer: 0</div>
+            </div>
+            <span>Choose Rock, Paper, or Scissors!</span>
+            <div id="container">
+                <div id="btns">
+                    <button id="rock" class="buttons">Rock</button>
+                    <button id="paper" class="buttons">Paper</button>
+                    <button id="scissors" class="buttons">Scissors</button>
+                </div>
+            </div>
         </div>
-        <div id="container">
-            <button id="rock">Rock</button>
-            <button id="paper">Paper</button>
-            <button id="scissors">Scissors</button>
+        <div id="game-info">
+            <div id="results"></div>
+            <div id="winner" class="bold"></div>
+            <div id="playAgain"></div>
         </div>
-        <div id="results"></div>
-        <div id="winner"></div>
-        <div id="playAgain"></div>
     </body>
 </html>
