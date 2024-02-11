@@ -1,1 +1,1 @@
-Play game here: (Link)[https://charlilize.github.io/rock-paper-scissors/] 
+Play game here: [Link](https://charlilize.github.io/rock-paper-scissors/)
