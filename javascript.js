@@ -57,47 +57,6 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-// PLAYS A FIVE ROUND GAME AND REPORTS WINNER/LOSER
-function playGame() {
-    // Keep track of player and computer's wins
-    let playerWins = 0;
-    let computerWins = 0;
-    
-    // Plays 5 rounds of game
-    // for (let i = 0; i < 5; i++) {
-        // Randomize Computer's choice
-        // let computerSelection = getComputerChoice();
-        // Prompt for user's choice
-        // let playerSelection = (prompt("Choose Rock, Paper, or Scissors").toUpperCase());
-
-        // Compare the choices
-        // console.log(playRound(playerSelection, computerSelection));
-
-        // Keep track of who won the round
-        let winner = updateWins(playerSelection, computerSelection);
-        if (winner == 1) {
-            playerWins++;
-        } else if (winner == 0) {
-            computerWins++;
-        }
-    // }
-
-    console.log(playerWins);
-
-
-    playerScore.textContent = "Score: " + playerWins;
-    compScore.textContent = "Score: " + computerWins;
-
-    // Output the outcome of the game
-    if (playerWins == computerWins) {
-         console.log("GAME OVER: It's a Tie!");
-    } else if (playerWins > computerWins) {
-        console.log("GAME OVER: Player Wins the Game!");
-    } else if (computerWins > playerWins) {
-        console.log("GAME OVER: Computer Wins the Game!");
-    }
-}
-
 const buttonsDiv = document.querySelector("#container");
 const buttons = document.querySelectorAll("button");
 const displayResults = document.querySelector("#results");
